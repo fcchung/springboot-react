@@ -20,7 +20,7 @@ This defines the data structure for each employee
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class Employee {
     //These annotate the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
