@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor //add final constructors
 public class employeeController {
     private final EmployeeServiceInterface employeeService;
+    @GetMapping
     public ResponseEntity<List<Employee>> getEmployees() {
         return new ResponseEntity<>(employeeService.getEmployees(), HttpStatus.FOUND);
     }
@@ -36,7 +37,7 @@ public class employeeController {
         return employeeService.getEmployee(id);
     }
 
-    @GetMapping("emloyee/{email}")
+    @GetMapping("employee/{email}")
     public Employee getEmployee(@PathVariable String email) {
         return employeeService.getEmployee(email);
     }
