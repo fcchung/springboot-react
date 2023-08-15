@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("http://localhost:3000") //this allow the front-end to access the back
 @RestController
 //This is like mapping to the route
 @RequestMapping("/employees")
