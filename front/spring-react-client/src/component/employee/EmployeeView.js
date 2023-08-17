@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const EmployeeView = () => {
   const [employees, setEmployees] = useState([]);
@@ -17,16 +19,24 @@ const EmployeeView = () => {
       console.log(error);
     }
   };
+  
+  const handleDelete = async (id) => {
+    await fetch(`http://localhost:9192/employees/delete/${id}`, {
+      method: 'DELETE'
+    });
+    loadEmployees();
+  };
+
   return (
     <section className="flex items-center justify-center">
-      <table className="border text-center">
+      <table className="border text-center w-full shadow-xl">
         <thead className="border ">
           <tr className="border-b text-center	">
             <th>
               <div className="mx-2">ID</div>
             </th>
             <th className="border">
-              <div className="mx-2"> First Name</div>
+              <div className="mx-2">First Name</div>
             </th>
             <th className="border">
               <div className="mx-2">Last Name</div>
@@ -59,18 +69,24 @@ const EmployeeView = () => {
                 <div className="mx-2">{employee.department}</div>
               </td>
               <td className="border">
-                <button className="mx-3 bg-blue-500 text-white font-bold py-2 px-4 rounded ">
-                  View
+                <button
+                  className="mx-3 bg-blue-500 text-white font-bold py-2 px-4 rounded "
+                  to={`/employee-profile/${employee.id}`}
+                >
+                  <FaEye />
                 </button>
               </td>
               <td className="border">
-                <button className="mx-3 bg-yellow-500 text-white font-bold py-2 px-4 rounded ">
-                  Update
-                </button>
+                <Link
+                  className="mx-3 bg-yellow-500 text-white font-bold py-2 px-4 rounded "
+                  to={`/edit-employee/${employee.id}`}
+                >
+                  <FaEdit />
+                </Link>
               </td>
               <td className="border">
-                <button className="mx-3 bg-red-500 text-white font-bold py-2 px-4 rounded ">
-                  Delete
+                <button className="mx-3 bg-red-500 text-white font-bold py-2 px-4 rounded " onClick={()=> handleDelete(employee.id)}>
+                  <FaTrashAlt />
                 </button>
               </td>
             </tr>
