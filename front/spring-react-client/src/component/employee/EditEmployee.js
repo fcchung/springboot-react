@@ -1,19 +1,15 @@
-import React, { useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 
 //Edge case to think about: - what if the user change the url on top to edit a different employee?
 //
 const EditEmployee = () => {
   const navigate = useNavigate();
-  let {id} = useParams()
-  let [employee, setEmployee] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    department: "",
-  });
-  let { firstName, lastName, email, department } = employee;
+  const { state } = useLocation();
+  let { id } = useParams();
+  let [employee, setEmployee] = useState(state.employee);
 
+  let { firstName, lastName, email, department } = employee;
   const handleInputChange = (e) => {
     setEmployee({
       ...employee,
@@ -32,7 +28,7 @@ const EditEmployee = () => {
       },
     });
     navigate("/view-employees");
-    return res
+    return res;
   };
 
   return (
@@ -42,10 +38,7 @@ const EditEmployee = () => {
     >
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-last-name"
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             First Name
           </label>
           <input
@@ -58,10 +51,7 @@ const EditEmployee = () => {
           />
         </div>
         <div className="w-full md:w-1/2 px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-last-name"
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Last Name
           </label>
           <input
@@ -76,10 +66,7 @@ const EditEmployee = () => {
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-email"
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Email
           </label>
           <input
@@ -94,10 +81,7 @@ const EditEmployee = () => {
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-department"
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Department
           </label>
           <input
@@ -124,6 +108,6 @@ const EditEmployee = () => {
       </Link>
     </form>
   );
-}
+};
 
 export default EditEmployee;

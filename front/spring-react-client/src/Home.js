@@ -3,8 +3,10 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <div>Here is home page</div>
-      <div>Hola mondo</div>
+      <div className="text-center">
+        This is a mini project that uses Spring Boot for backend. To run this
+        project propery, you'll need to have MySQL server running on your local.
+      </div>
     </div>
   );
 };

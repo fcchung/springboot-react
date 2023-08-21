@@ -19,10 +19,10 @@ const EmployeeView = () => {
       console.log(error);
     }
   };
-  
+
   const handleDelete = async (id) => {
     await fetch(`http://localhost:9192/employees/delete/${id}`, {
-      method: 'DELETE'
+      method: "DELETE",
     });
     loadEmployees();
   };
@@ -69,23 +69,28 @@ const EmployeeView = () => {
                 <div className="mx-2">{employee.department}</div>
               </td>
               <td className="border">
-                <button
-                  className="mx-3 bg-blue-500 text-white font-bold py-2 px-4 rounded "
+                <Link
+                  className="mx-3 bg-blue-500 text-white  py-2 px-4 rounded inline-flex"
                   to={`/employee-profile/${employee.id}`}
+                  state={{ employee }}
                 >
                   <FaEye />
-                </button>
+                </Link>
               </td>
               <td className="border">
                 <Link
-                  className="mx-3 bg-yellow-500 text-white font-bold py-2 px-4 rounded "
+                  className="mx-3 bg-yellow-500 text-white py-2 px-4 rounded inline-flex "
                   to={`/edit-employee/${employee.id}`}
+                  state={{ employee }}
                 >
                   <FaEdit />
                 </Link>
               </td>
               <td className="border">
-                <button className="mx-3 bg-red-500 text-white font-bold py-2 px-4 rounded " onClick={()=> handleDelete(employee.id)}>
+                <button
+                  className="mx-3 bg-red-500 text-white font-bold py-2 px-4 rounded "
+                  onClick={() => handleDelete(employee.id)}
+                >
                   <FaTrashAlt />
                 </button>
               </td>

@@ -29,8 +29,7 @@ const AddEmployee = () => {
       },
     });
     navigate("/view-employees");
-    return response.json()
-    
+    return response.json();
   };
 
   return (
@@ -40,10 +39,7 @@ const AddEmployee = () => {
     >
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             First Name
           </label>
           <input
@@ -57,10 +53,7 @@ const AddEmployee = () => {
           />
         </div>
         <div className="w-full md:w-1/2 px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Last Name
           </label>
           <input
@@ -76,10 +69,7 @@ const AddEmployee = () => {
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-       
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Email
           </label>
           <input
@@ -95,10 +85,7 @@ const AddEmployee = () => {
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-
-          >
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Department
           </label>
           <input
